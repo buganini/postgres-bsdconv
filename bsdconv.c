@@ -2,6 +2,10 @@
 #include <bsdconv.h>
 #include "fmgr.h"
 
+#ifdef PG_MODULE_MAGIC
+PG_MODULE_MAGIC;
+#endif
+
 PG_FUNCTION_INFO_V1(Bsdconv);
 
 Datum
@@ -25,7 +29,7 @@ Bsdconv(PG_FUNCTION_ARGS)
 	int32 new_text_size;
 
 	new_text_size=ins->output.len;
-	new_text=(text *)(uintptr_t) pmalloc(new_text_size);
+	new_text=(text *)(uintptr_t) palloc(new_text_size);
 	ins->output.data=new_text;
 	SET_VARSIZE(new_text, new_text_size);
 	bsdconv(ins);
