@@ -6,4 +6,9 @@ Check path in Makefile
 
 > psql
 # CREATE FUNCTION bsdconv(text, text) RETURNS text AS 'bsdconv', 'Bsdconv' LANGUAGE C STRICT;
+# select bsdconv('utf-8:upper:full:utf-8','test');
+ bsdconv  
+----------
+ ＴＥＳＴ
+(1 row)
 # DROP FUNCTION IF EXISTS bsdconv(text, text);
