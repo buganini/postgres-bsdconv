@@ -30,8 +30,9 @@ Bsdconv(PG_FUNCTION_ARGS)
 
 	new_text_size=ins->output.len;
 	new_text=(text *) palloc(new_text_size);
-	ins->output.data=new_text;
+	ins->output.data=VARDATA(new_text);
 	SET_VARSIZE(new_text, new_text_size);
+	
 	bsdconv(ins);
 	bsdconv_destroy(ins);
 
