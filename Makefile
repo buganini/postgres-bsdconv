@@ -1,7 +1,7 @@
 PREFIX?=	/usr/local
 
 BSDCONV_FLAGS=	-I${PREFIX}/include -L${PREFIX}/lib -lbsdconv
-POSTGRES_FLAGS=	
+POSTGRES_FLAGS=	-I`pg_config --includedir-server`
 
 all: bsdconv.so
 
