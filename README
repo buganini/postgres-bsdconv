@@ -1,0 +1,9 @@
+Check path in Makefile
+
+> make
+
+> sudo make install
+
+> psql
+# CREATE FUNCTION bsdconv(text, text) RETURNS text AS 'bsdconv', 'Bsdconv' LANGUAGE C STRICT;
+# DROP FUNCTION IF EXISTS bsdconv(text, text);
