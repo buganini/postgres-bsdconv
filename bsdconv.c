@@ -29,10 +29,11 @@ Bsdconv(PG_FUNCTION_ARGS)
 	int32 new_text_size;
 
 	new_text_size=ins->output.len;
-	new_text=(text *)(uintptr_t) palloc(new_text_size);
+	new_text=(text *) palloc(new_text_size);
 	ins->output.data=new_text;
 	SET_VARSIZE(new_text, new_text_size);
 	bsdconv(ins);
+	bsdconv_destroy(ins);
 
 	PG_RETURN_TEXT_P(new_text);
 }
