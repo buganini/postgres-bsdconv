@@ -24,6 +24,7 @@ Bsdconv(PG_FUNCTION_ARGS)
 	ins->input.data=VARDATA(str);
 	ins->input.len=VARSIZE(str) - VARHDRSZ;
 	ins->input.flags=0;
+	ins->input.next=NULL;
 	ins->output.data=0;
 	ins->flush=1;
 	bsdconv(ins);
@@ -35,7 +36,7 @@ Bsdconv(PG_FUNCTION_ARGS)
 	new_text=(text *) palloc(new_text_size);
 	ins->output.data=VARDATA(new_text);
 	SET_VARSIZE(new_text, new_text_size);
-	
+
 	bsdconv(ins);
 	bsdconv_destroy(ins);
 
