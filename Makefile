@@ -1,3 +1,4 @@
+DESTDIR?=
 PREFIX?=	/usr/local
 LOCALBASE?=${PREFIX}
 
@@ -11,7 +12,7 @@ bsdconv.so: bsdconv.c
 	$(CC) -shared -fPIC ${BSDCONV_FLAGS} ${POSTGRES_FLAGS} -o bsdconv.so bsdconv.c
 
 install:
-	install -m 555 bsdconv.so ${INSTALL_PATH}
+	install -m 555 bsdconv.so ${DESTDIR}${INSTALL_PATH}
 
 clean:
 	rm bsdconv.so
