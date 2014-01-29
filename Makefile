@@ -1,6 +1,7 @@
 PREFIX?=	/usr/local
+LOCALBASE?=${PREFIX}
 
-BSDCONV_FLAGS=	-I${PREFIX}/include -L${PREFIX}/lib -lbsdconv
+BSDCONV_FLAGS=	-I${LOCALBASE}/include -L${LOCALBASE}/lib -lbsdconv
 POSTGRES_FLAGS=	-I`pg_config --includedir-server`
 INSTALL_PATH=	`pg_config --pkglibdir`
 
